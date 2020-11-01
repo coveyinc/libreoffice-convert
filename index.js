@@ -18,15 +18,15 @@ const convertWithOptions = (document, format, filter, options, callback) => {
 	      paths.push(...process.env.PATH.split(':').map(s => `${s}/soffice`))
             } 
             switch (process.platform) {
-                case 'darwin': paths = ['/Applications/LibreOffice.app/Contents/MacOS/soffice'];
+                case 'darwin': paths.push('/Applications/LibreOffice.app/Contents/MacOS/soffice');
                     break;
-                case 'linux': paths = ['/usr/bin/libreoffice', '/usr/bin/soffice'];
+                case 'linux': paths.push(...['/usr/bin/libreoffice', '/usr/bin/soffice']);
                     break;
-                case 'win32': paths = [
+                case 'win32': paths = paths.push(...[
                     path.join(process.env['PROGRAMFILES(X86)'], 'LIBREO~1/program/soffice.exe'),
                     path.join(process.env['PROGRAMFILES(X86)'], 'LibreOffice/program/soffice.exe'),
                     path.join(process.env.PROGRAMFILES, 'LibreOffice/program/soffice.exe'),
-                ];
+                ]);
                     break;
                 default:
                     return callback(new Error(`Operating system not yet supported: ${process.platform}`));

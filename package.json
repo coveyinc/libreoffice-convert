@@ -3,7 +3,7 @@
   "version": "1.3.1",
   "description": "A simple and fast node.js module for converting office documents to different formats",
   "main": "index.js",
-  "repository": "https://github.com/elwerene/libreoffice-convert",
+  "repository": "https://github.com/coveyinc/libreoffice-convert",
   "keywords": [
     "Libreoffice",
     "convert",
