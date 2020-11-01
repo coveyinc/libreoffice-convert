@@ -17,7 +17,6 @@ const convertWithOptions = (document, format, filter, options, callback) => {
 	    if (process.env.PATH) {
 	      paths.push(...process.env.PATH.split(':').map(s => `${s}/soffice`))
             } 
-	    console.log(paths)
             switch (process.platform) {
                 case 'darwin': paths = ['/Applications/LibreOffice.app/Contents/MacOS/soffice'];
                     break;
